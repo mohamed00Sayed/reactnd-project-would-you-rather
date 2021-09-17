@@ -1,11 +1,11 @@
 import Question from './Question'
 
 function QuestionList(props){
-  const questions = props.questions
+  const { questions, type } = props
   return(
     <div>
       <ul>
-        {questions.map((id)=> <li key={id}> <Question id={id}/> </li>)}
+        {questions.map((id)=> <li key={id}> <Question id={id} type={type}/> </li>)}
       </ul>
     </div> 
   )

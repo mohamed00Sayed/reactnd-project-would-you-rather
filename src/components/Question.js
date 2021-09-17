@@ -1,23 +1,31 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Question extends Component{
   
   render(){
+    const { name, avatarURL, showingText, id, type} = this.props
+    
     return(
       <div>
         <div className='question'>
           <div className='question-author-name'>
-            <h3>{this.props.name}</h3>
+            <h3>{name}</h3>
           </div>
           <div className='question-data'>
             <div className='question-author-avatar'>
-              <img src={this.props.avatarURL} alt='question author avatar' />
+              <img src={avatarURL} alt='question author avatar' />
             </div>
             <div className='question-text-data'>
               <h4>Would you rather</h4>
-              <p>{this.props.showingText}</p>
-              <button className='btn'>View Poll</button>
+              <p>{showingText}</p>
+              <Link className='btn' 
+                to={{
+                  pathname: `questions/${id}`,
+                  state:{type}
+                }}
+              >View Poll</Link>
             </div>
           </div>
         </div>
