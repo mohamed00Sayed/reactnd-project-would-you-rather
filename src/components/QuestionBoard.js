@@ -1,12 +1,21 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import QuestionList from './QuestionList'
 
 const unansweredQs = 'unansweredQs'
 const answeredQs = 'answeredQs'
+const question_board = 'question_board'
+const answered_poll = 'answered_poll'
+const unanswered_poll = 'unanswered_poll'
 
 class QuestionBoard extends Component{
   state={
-    selectedQuestions: unansweredQs
+    selectedQuestions: unansweredQs,
+    page: question_board
+  }
+  
+  handlePage = (page, id)=> {
+    this.setState({page})
   }
   
   handleToggleQuestions = (evt) => {
@@ -24,7 +33,9 @@ class QuestionBoard extends Component{
   }
   
   render(){
+    const { answeredQs, unansweredQs } = this.props
     return(
+      this.state.page === question_board?
       <div className='board-container'>
         <div className='question-board'>
         
@@ -35,22 +46,19 @@ class QuestionBoard extends Component{
           
           <div className='selected-questions'>
             {this.state.selectedQuestions === 'unansweredQs'? (
-              <div>
-                <ul>
-                  {this.props.unansweredQs.map((id)=> <li key={id}>{id}</li>)}
-                </ul>
-              </div>
+              <QuestionList questions={unansweredQs}/>
             ): (
-              <div>
-                <ul>
-                  {this.props.answeredQs.map((id)=> <li key={id}>{id}</li>)}
-                </ul>
-              </div>         
+              <QuestionList questions={answeredQs}/>         
             )}
           </div>
       
         </div>      
       </div>
+      :
+      this.state.page === answered_poll?
+      <div>Answered Poll</div>
+      :
+      <div>Unanswered Poll</div>
 
     )
   }
@@ -76,7 +84,7 @@ function mapStateToProps(state){
     
   return {
     answeredQs,
-    unansweredQs
+    unansweredQs,
   }
 }
 
