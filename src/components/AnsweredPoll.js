@@ -68,13 +68,13 @@ function getPercent(data1, data2){
   let percent
   const total = data1 + data2
   if(data2 === 0){
-    percent = 100
+    percent = 1
   }
   else{
     percent = data1/total
   }
   
-  return Math.round(percent)
+  return percent * 100
 }
 
 
