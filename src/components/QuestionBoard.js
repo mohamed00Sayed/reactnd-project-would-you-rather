@@ -6,8 +6,8 @@ import AnsweredPoll from './AnsweredPoll'
 const unansweredQs = 'unansweredQs'
 const answeredQs = 'answeredQs'
 const question_board = 'question_board'
-const answered_poll = 'answered_poll'
-const unanswered_poll = 'unanswered_poll'
+const answered = 'answered'
+const unanswered = 'unanswered'
 
 class QuestionBoard extends Component{
   state={
@@ -41,9 +41,9 @@ class QuestionBoard extends Component{
           
           <div className='selected-questions'>
             {this.state.selectedQuestions === 'unansweredQs'? (
-              <QuestionList questions={unansweredQs} type={unanswered_poll}/>
+              <QuestionList questions={unansweredQs} type={unanswered}/>
             ): (
-              <QuestionList questions={answeredQs} type={answered_poll}/>         
+              <QuestionList questions={answeredQs} type={answered}/>         
             )}
           </div>
       

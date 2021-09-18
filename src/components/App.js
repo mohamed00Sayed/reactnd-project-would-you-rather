@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import QuestionBoard from './QuestionBoard'
 import AnsweredPoll from './AnsweredPoll'
+import UnansweredPoll from './UnansweredPoll'
+import history from '../history'
 
 class App extends Component {
 	
@@ -12,7 +14,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
+      <Router history={history}>
 
           {this.props.loading === true
               ? null
@@ -20,14 +22,13 @@ class App extends Component {
               (
                 <div>
                   <Route exact path='/' component={QuestionBoard} />
-                  <Route path='/questions/:id' render={(history)=>{
-                    const { id } = history.match.params
-                    if(history.location.state.type === 'answered_poll'){
-                      return <AnsweredPoll id={id}/>
-                    }
-                    else{
-                      return <div>Unanswered Poll</div>
-                    }
+                  <Route exact path='/questions/:id/answered' render={(history)=>{
+                    const id = history.match.params.id
+                    return <AnsweredPoll id={id} />
+                  }}/>
+                  <Route exact path='/questions/:id/unanswered' render={(history)=>{
+                    const id = history.match.params.id
+                    return <UnansweredPoll id={id} />
                   }}/>
                 </div>
               )         

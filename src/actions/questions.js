@@ -20,10 +20,13 @@ export function answerQuestion(questionId, authedUser, answer){
   }
 }
 
-export function handleAnswerQuestion({questionId, authedUser, answer}){
+export function handleAnswerQuestion(questionId, authedUser, answer){
   return (dispatch) => {
-    return saveQuestionAnswer(questionId, authedUser, answer)
-      .then(()=> dispatch(answerQuestion(questionId, authedUser, answer)))
+    return saveQuestionAnswer(authedUser, questionId, answer)
+      .then(()=> {
+        dispatch(answerQuestion(questionId, authedUser, answer))
+        
+      })
   }
 }
 

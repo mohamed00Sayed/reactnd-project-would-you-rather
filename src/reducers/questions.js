@@ -22,6 +22,7 @@ export default function questions(state={}, action){
         [questionId]: {
           ...state[questionId],
           [selected]: {
+            ...state[questionId][selected],
             votes: state[questionId][selected].votes.concat([authedUser])
           }
         }

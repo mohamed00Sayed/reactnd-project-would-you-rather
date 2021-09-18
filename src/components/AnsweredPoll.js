@@ -21,7 +21,7 @@ class AnsweredPoll extends Component{
               <div className='option-percent' style={{width: `${optOnePercent}%`}}>{optOnePercent}% </div>
               <p>{optOneVotes} of {optOneVotes + optTwoVotes} votes</p>
               {
-                vote === 'first'? (<div className='your-vote'>Your Vote</div>):(<p></p>)
+                vote === 'first'? (<div className='your-vote'>Your <br /> Vote</div>):(<p></p>)
               }
             </div>
             <div className='poll-second-option'>
@@ -39,8 +39,7 @@ class AnsweredPoll extends Component{
   }
 }
 
-function mapStateToProps(state, props){
-  const { id } = props
+function mapStateToProps(state, {id}){
   const { users, questions } = state
   const { author, optionOne, optionTwo } = questions[id]
   const { name, avatarURL } = users[author]
@@ -50,7 +49,17 @@ function mapStateToProps(state, props){
   const optTwoVotes = optionTwo.votes.length
   const optOnePercent = getPercent(optOneVotes, optTwoVotes)
   const optTwoPercent = 100 - optOnePercent
-  const vote = optionOne.votes.includes[author]? 'first': 'second'
+  let vote = 'second'
+  optionOne.votes.forEach((name)=> {
+    if(name !== author){
+      vote = 'first'
+    }
+    else{
+      vote = 'second'
+    }
+  })
+  console.log('votes:',optionOne.votes)
+  console.log(vote)
   return {
     name,
     avatarURL,
