@@ -19,7 +19,7 @@ class UserStat extends Component{
         <div className='stat-score'>
           <div className='stat-header'>Score</div>
           <div className='stat-value'>
-            <p>{total}</p>
+            <p className='total-score-value'>{total}</p>
           </div>
         </div>
       </div>
