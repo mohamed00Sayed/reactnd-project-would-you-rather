@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ADD_QUESTION, handleAddQuestion } from '../actions/questions'
+import history from '../history'
 
 class NewQuestion extends Component{
   constructor(props){
@@ -25,7 +26,7 @@ class NewQuestion extends Component{
   }
   
   handleAddQuestion = (evt)=> {
-    evt.preventDefault()
+    //evt.preventDefault()
     if(this.state.optOne === '' || this.state.optTwo === ''){
       alert('Please fill empty fields !')
     }
@@ -39,6 +40,7 @@ class NewQuestion extends Component{
         author
       }
       this.props.dispatch(handleAddQuestion(question))
+      history.replace('/')
     }
   }
   
@@ -67,10 +69,10 @@ class NewQuestion extends Component{
             />
           </div>
           <div>
-            <button className='new-question-submit'
-              type='submit'
+            <Link className='new-question-submit'
+              to={'/'}
               onClick={this.handleAddQuestion}
-            >SUBMIT</button>
+            >SUBMIT</Link>
           </div>
         </div>
       </div>
