@@ -41,9 +41,9 @@ class UnansweredPoll extends Component{
                 <label htmlFor='second'>{optionTwoText}</label>
               </div>
               <div className='link-div'>
-                <Link onClick={this.handleVoting} className='btn'
+                <Link onClick={this.handleVoting}
                   to={`answered`}
-                >Submit</Link>
+                ><div className='btn-unanswered'>Submit</div></Link>
               </div>
           </div>
         </div>

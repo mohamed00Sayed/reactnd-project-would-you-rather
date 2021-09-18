@@ -69,10 +69,10 @@ class NewQuestion extends Component{
             />
           </div>
           <div>
-            <Link className='new-question-submit'
+            <Link 
               to={'/'}
               onClick={this.handleAddQuestion}
-            >SUBMIT</Link>
+            ><div className='new-question-submit'>SUBMIT</div></Link>
           </div>
         </div>
       </div>

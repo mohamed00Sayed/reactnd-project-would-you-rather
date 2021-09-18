@@ -20,11 +20,11 @@ class Question extends Component{
             <div className='question-text-data'>
               <h4>Would you rather</h4>
               <p>{showingText}</p>
-              <Link className='btn' 
+              <Link  
                 to={{
                   pathname: `questions/${id}/${type}`,
                 }}
-              >View Poll</Link>
+              ><div className='btn'>View Poll</div></Link>
             </div>
           </div>
         </div>
