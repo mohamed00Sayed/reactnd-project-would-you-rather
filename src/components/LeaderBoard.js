@@ -14,7 +14,7 @@ class LeaderBoard extends Component{
     )
   }
 }
-// todo: send list of leaders from here
+
 function mapStateToProps(state){
   const { users } = state
   const valuesByUsers = []
