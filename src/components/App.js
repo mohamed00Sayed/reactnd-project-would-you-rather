@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -8,6 +8,7 @@ import UnansweredPoll from './UnansweredPoll'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
+import LoadingBar from 'react-redux-loading'
 import history from '../history'
 
 class App extends Component {
@@ -18,6 +19,8 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
+        <Fragment>
+          <LoadingBar />
           <div className='app-container'>
             <Nav />
             {this.props.loading === true
@@ -40,6 +43,7 @@ class App extends Component {
               )         
             }
           </div>
+        </Fragment>
       </Router>
       
     )
