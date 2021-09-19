@@ -18,7 +18,7 @@ a {
   display: flex;
   list-style: none;
   flex-direction: row;
-  margin: 1%
+  margin: 1% 1% 1% 0
 }
 .nav li:not(:last-child){
   background-color: #e9f5e6;
@@ -41,6 +41,10 @@ a {
   background-color: white;
   margin-top: 15px;
   margin-left: 50%;
+}
+
+.nav li:nth-child(2){
+  width: 10%;
 }
 
 .nav li:nth-child(5){
@@ -332,6 +336,56 @@ h1{
 }
 
 .new-question-submit:hover{
+  background-color: #e9f5e6;
+  cursor: pointer;
+}
+
+.login-wraper{
+  position: absolute;
+  top: 10%;
+  left: 33%;
+  width: 30%;
+  height: 30%;
+  margin-right: -50%;
+  transform: translate(-5%, -5%);
+  border: 1px solid gray;
+  border-radius: 5px;  
+}
+
+.login{
+  margin: 15% 15% 15% 13%;
+  justify-content: center;
+}
+
+#select-user{
+  margin-left: 15%;
+  width: 70%;
+  height: 40px;
+  background-color: #e9f5e6;
+  border-radius: 5px;
+}
+
+#select-user option{
+  background-color: #e9f5e6;
+}
+
+.login h3 {
+  color: #b4e3a6;
+  text-align: center;
+  margin-left: 1%;
+}
+
+.login-btn{
+  display: block;
+  margin: 5% 5% 5% 15%;
+  width: 70%;
+  height: 30px;
+  font-weight: bold;
+  background-color: #b4e3a6;
+  border-radius: 5px;
+}
+
+.login-btn:hover{
   background-color: #e9f5e6;
   cursor: pointer;
 }

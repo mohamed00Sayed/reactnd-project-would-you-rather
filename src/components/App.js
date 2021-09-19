@@ -8,6 +8,7 @@ import UnansweredPoll from './UnansweredPoll'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
+import Login from './Login'
 import LoadingBar from 'react-redux-loading'
 import { setAuthedUser } from '../actions/authedUser'
 import history from '../history'
@@ -22,6 +23,11 @@ class App extends Component {
   
   handleLogout = (evt)=>{
     this.props.dispatch(setAuthedUser(null))
+    history.replace('/')
+  }
+  
+  handleLogin = (userId)=> {
+    this.props.dispatch(setAuthedUser(userId))
   }
   
   render() {
@@ -31,7 +37,7 @@ class App extends Component {
           <LoadingBar />
           <div className='app-container'>
             {this.props.loading === true
-              ? null
+              ? <Login handleLogin={this.handleLogin}/>
               :
               (
                 <Fragment>
