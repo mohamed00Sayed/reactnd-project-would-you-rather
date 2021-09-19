@@ -20,7 +20,7 @@ class UnansweredPoll extends Component{
     
   }
   render(){
-    const { id, name, avatarURL, optionOneText, optionTwoText} = this.props
+    const { name, avatarURL, optionOneText, optionTwoText} = this.props
     return(
       <div className='unanswered-poll'>
         <div className='user-asks'>

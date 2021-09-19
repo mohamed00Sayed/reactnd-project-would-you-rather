@@ -292,7 +292,9 @@ a {
 .leaders-list li:not(:first-child) {
   margin-top: 3%;
 }
-
+.leaders-list li{
+  list-style: none
+}
 .new-question{
   position: absolute;
   top: 10%;

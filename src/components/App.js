@@ -14,60 +14,68 @@ import { setAuthedUser } from '../actions/authedUser'
 import history from '../history'
 
 class App extends Component {
-
-
+  state = {
+    user: null
+  }
+  
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    let user = localStorage.getItem('user')
+    if(user=== ''){
+      user = null
+    }
+    this.setState({ user })
+    this.props.dispatch(handleInitialData(user))
   }
 
   
   handleLogout = (evt)=>{
     this.props.dispatch(setAuthedUser(null))
+    localStorage.setItem('user', '')
     history.replace('/')
   }
   
   handleLogin = (userId)=> {
     this.props.dispatch(setAuthedUser(userId))
+    localStorage.setItem('user', userId)
   }
   
   render() {
+    const { loading } = this.props
     return (
-      <Router history={history}>
+      <Router history={history} >
         <Fragment>
           <LoadingBar />
-          <div className='app-container'>
-            {this.props.loading === true
-              ? <Login handleLogin={this.handleLogin}/>
-              :
-              (
-                <Fragment>
-                  <Nav handleLogout={this.handleLogout}/>
-                  <div className='app-div'>
-                    <Route exact path='/' component={QuestionBoard} />
-                    <Route path='/leaderboard' component={LeaderBoard} />
-                    <Route path='/add' component={NewQuestion} />
-                    <Route exact path='/questions/:id/answered' render={(history)=>{
-                      const id = history.match.params.id
-                      return <AnsweredPoll id={id} />
-                    }}/>
-                    <Route exact path='/questions/:id/unanswered' render={(history)=>{
-                      const id = history.match.params.id
-                      return <UnansweredPoll id={id} />
-                    }}/>
-                  </div>
-                </Fragment>
-              )         
-            }
-          </div>
+          {
+            loading === true ?
+            <Login handleLogin={this.handleLogin}/>:
+            <Fragment>
+              <Nav handleLogout={this.handleLogout}/>
+              <div className='app-div'>
+                <Route exact path='/' component={QuestionBoard} />
+                <Route path='/leaderboard' component={LeaderBoard} />
+                <Route path='/add' component={NewQuestion} />
+                <Route exact path='/questions/:id/answered' render={(history)=>{
+                  const id = history.match.params.id
+                  return <AnsweredPoll id={id} />
+                }}/>
+                <Route exact path='/questions/:id/unanswered' render={(history)=>{
+                  const id = history.match.params.id
+                  return <UnansweredPoll id={id} />
+                }}/>
+              </div>
+            </Fragment>
+          }
+          
         </Fragment>
       </Router>
       
     )
   }
 }
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users, questions }) {
+  const loading = authedUser === null 
   return {
-    loading: authedUser === null
+    loading
   }
 }
 export default connect(mapStateToProps)(App);

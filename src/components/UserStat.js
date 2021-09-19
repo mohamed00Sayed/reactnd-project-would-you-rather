@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class UserStat extends Component{
   
   render(){
-    const { id, name, avatarURL, questionsNum, answersNum, total } = this.props
+    const { name, avatarURL, questionsNum, answersNum, total } = this.props
     return(
       <div className='user-stat'>
         <div className='stat-avatar'>

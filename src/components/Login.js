@@ -30,7 +30,7 @@ class Login extends Component{
             <option disabled value={'default'}>Select a user...</option>
             {
               Object.keys(users).map((userId) => {
-                const { id, name, avatarURL } = users[userId]
+                const { id, name } = users[userId]
                 return(
                   <option key={id} value={id}>
                     {name}

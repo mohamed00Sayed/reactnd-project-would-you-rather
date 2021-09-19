@@ -1,11 +1,9 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import QuestionList from './QuestionList'
-import AnsweredPoll from './AnsweredPoll'
 
 const unansweredQs = 'unansweredQs'
 const answeredQs = 'answeredQs'
-const question_board = 'question_board'
 const answered = 'answered'
 const unanswered = 'unanswered'
 

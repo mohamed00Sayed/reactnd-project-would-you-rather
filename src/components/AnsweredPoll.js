@@ -58,8 +58,7 @@ function mapStateToProps(state, {id}){
       vote = 'second'
     }
   })
-  console.log('votes:',optionOne.votes)
-  console.log(vote)
+  
   return {
     name,
     avatarURL,
@@ -83,7 +82,7 @@ function getPercent(data1, data2){
     percent = data1/total
   }
   
-  return percent * 100
+  return Math.round(percent * 100)
 }
 
 

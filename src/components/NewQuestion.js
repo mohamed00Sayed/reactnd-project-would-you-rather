@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { ADD_QUESTION, handleAddQuestion } from '../actions/questions'
+import { handleAddQuestion } from '../actions/questions'
 import history from '../history'
 
 class NewQuestion extends Component{
