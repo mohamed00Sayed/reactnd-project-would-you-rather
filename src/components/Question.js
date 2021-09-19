@@ -22,7 +22,7 @@ class Question extends Component{
               <p>{showingText}</p>
               <Link  
                 to={{
-                  pathname: `questions/${id}/${type}`,
+                  pathname: `questions/${id}`,
                 }}
               ><div className='btn'>View Poll</div></Link>
             </div>

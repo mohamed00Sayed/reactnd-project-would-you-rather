@@ -9,38 +9,31 @@ import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
 import Login from './Login'
+import ErrorPage from './ErrorPage'
 import LoadingBar from 'react-redux-loading'
 import { setAuthedUser } from '../actions/authedUser'
 import history from '../history'
 
+let loggedOut = true
+
 class App extends Component {
-  state = {
-    user: null
-  }
-  
+
   componentDidMount() {
-    let user = localStorage.getItem('user')
-    if(user=== ''){
-      user = null
-    }
-    this.setState({ user })
-    this.props.dispatch(handleInitialData(user))
+    this.props.dispatch(handleInitialData(null))
   }
 
   
   handleLogout = (evt)=>{
     this.props.dispatch(setAuthedUser(null))
-    localStorage.setItem('user', '')
     history.replace('/')
   }
   
   handleLogin = (userId)=> {
     this.props.dispatch(setAuthedUser(userId))
-    localStorage.setItem('user', userId)
   }
   
   render() {
-    const { loading } = this.props
+    const { loading, answers, questions } = this.props
     return (
       <Router history={history} >
         <Fragment>
@@ -54,13 +47,21 @@ class App extends Component {
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/add' component={NewQuestion} />
-                <Route exact path='/questions/:id/answered' render={(history)=>{
+                <Route exact path='/questions/:id' render={(history)=>{
                   const id = history.match.params.id
-                  return <AnsweredPoll id={id} />
-                }}/>
-                <Route exact path='/questions/:id/unanswered' render={(history)=>{
-                  const id = history.match.params.id
-                  return <UnansweredPoll id={id} />
+                  console.log('id is:', id, 'answers are:', Object.keys(answers))
+                  if(Object.keys(answers).includes(id)){
+                    return <AnsweredPoll id={id} />
+                  }
+                  else{
+                    if(Object.keys(questions).includes(id)){
+                      return <UnansweredPoll id={id} />
+                    }
+                    else{
+                      return <ErrorPage />
+                    }
+                    
+                  }
                 }}/>
               </div>
             </Fragment>
@@ -74,8 +75,15 @@ class App extends Component {
 }
 function mapStateToProps ({ authedUser, users, questions }) {
   const loading = authedUser === null 
+  let answers
+  if(authedUser !== null){
+    answers = users[authedUser].answers
+    
+  }
   return {
-    loading
+    loading,
+    answers,
+    questions
   }
 }
 export default connect(mapStateToProps)(App);

@@ -20,7 +20,7 @@ class UnansweredPoll extends Component{
     
   }
   render(){
-    const { name, avatarURL, optionOneText, optionTwoText} = this.props
+    const { id, name, avatarURL, optionOneText, optionTwoText} = this.props
     return(
       <div className='unanswered-poll'>
         <div className='user-asks'>
@@ -42,7 +42,7 @@ class UnansweredPoll extends Component{
               </div>
               <div className='link-div'>
                 <Link onClick={this.handleVoting}
-                  to={`answered`}
+                  to={`${id}`}
                 ><div className='btn-unanswered'>Submit</div></Link>
               </div>
           </div>
@@ -58,6 +58,7 @@ function mapStateToProps(state, {id}){
   const { name, avatarURL } = users[author]
   const optionOneText = optionOne.text
   const optionTwoText = optionTwo.text
+  console.log('id in unanswered:', id)
   return {
     id,
     name,

@@ -391,3 +391,17 @@ h1{
   background-color: #e9f5e6;
   cursor: pointer;
 }
+
+.error-page{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20%;
+  left: 33%;
+  width: 30%;
+  height: 30%;
+  margin-right: -50%;
+  transform: translate(-5%, -5%);
+  border: 1px solid gray;
+  border-radius: 5px; 
+}
