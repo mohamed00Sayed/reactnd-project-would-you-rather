@@ -47,7 +47,6 @@ class App extends Component {
                 <Route path='/add' component={NewQuestion} />
                 <Route exact path='/questions/:id' render={(history)=>{
                   const id = history.match.params.id
-                  console.log('id is:', id, 'answers are:', Object.keys(answers))
                   if(Object.keys(answers).includes(id)){
                     return <AnsweredPoll id={id} />
                   }

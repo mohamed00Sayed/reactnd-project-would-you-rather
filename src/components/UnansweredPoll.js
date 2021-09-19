@@ -58,7 +58,6 @@ function mapStateToProps(state, {id}){
   const { name, avatarURL } = users[author]
   const optionOneText = optionOne.text
   const optionTwoText = optionTwo.text
-  console.log('id in unanswered:', id)
   return {
     id,
     name,
