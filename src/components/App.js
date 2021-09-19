@@ -7,6 +7,7 @@ import AnsweredPoll from './AnsweredPoll'
 import UnansweredPoll from './UnansweredPoll'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
+import Nav from './Nav'
 import history from '../history'
 
 class App extends Component {
@@ -17,8 +18,9 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-
-          {this.props.loading === true
+          <div className='app-container'>
+            <Nav />
+            {this.props.loading === true
               ? null
               :
               (
@@ -36,7 +38,8 @@ class App extends Component {
                   }}/>
                 </div>
               )         
-          }
+            }
+          </div>
       </Router>
       
     )
