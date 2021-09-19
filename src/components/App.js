@@ -14,8 +14,6 @@ import LoadingBar from 'react-redux-loading'
 import { setAuthedUser } from '../actions/authedUser'
 import history from '../history'
 
-let loggedOut = true
-
 class App extends Component {
 
   componentDidMount() {

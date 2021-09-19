@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class Question extends Component{
   
   render(){
-    const { name, avatarURL, showingText, id, type} = this.props
+    const { name, avatarURL, showingText, id } = this.props
     
     return(
       <div>
