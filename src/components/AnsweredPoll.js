@@ -40,7 +40,7 @@ class AnsweredPoll extends Component{
 }
 
 function mapStateToProps(state, {id}){
-  const { users, questions } = state
+  const { authedUser, users, questions } = state
   const { author, optionOne, optionTwo } = questions[id]
   const { name, avatarURL } = users[author]
   const text1 = optionOne.text
@@ -50,14 +50,9 @@ function mapStateToProps(state, {id}){
   const optOnePercent = getPercent(optOneVotes, optTwoVotes)
   const optTwoPercent = 100 - optOnePercent
   let vote = 'second'
-  optionOne.votes.forEach((name)=> {
-    if(name !== author){
-      vote = 'first'
-    }
-    else{
-      vote = 'second'
-    }
-  })
+  if(optionOne.votes.includes(authedUser)){
+    vote = 'first'
+  }
   
   return {
     name,
