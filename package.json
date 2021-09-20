@@ -17,7 +17,7 @@
     "redux-thunk": "^2.3.0",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://mohamed00sayed.github.io/reactnd-project-would-you-rather";
+  "homepage": "https://mohamed00sayed.github.io/reactnd-project-would-you-rather",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
