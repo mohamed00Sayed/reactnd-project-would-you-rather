@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     const { loading, answers, questions } = this.props
     return (
-      <Router history={history} >
+      <Router history={history} basename='reactnd-project-would-you-rather'>
         <div>
           <LoadingBar />
           {
