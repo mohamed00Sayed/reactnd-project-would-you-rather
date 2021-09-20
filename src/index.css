@@ -14,41 +14,40 @@ a {
   font-weight: bold;
 }
 
-.nav ul {
-  display: flex;
-  list-style: none;
-  flex-direction: row;
-  margin: 1% 1% 1% 0
-}
-.nav li:not(:last-child){
-  background-color: #e9f5e6;
-  padding: 1%;
-  margin: 1%;
-  border-radius: 5px;
-  height: 10%
-}
-.logout-btn{
-  background-color: #e9f5e6;
-  border-radius: 5px;
-}
-
 .logout-btn:hover{
   cursor:pointer;
-  background-color: #b4e3a6;
 }
 
-.nav li:nth-child(4){
-  background-color: white;
-  margin-top: 15px;
-  margin-left: 50%;
+
+.nav ul {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #e9f5e6;
 }
 
-.nav li:nth-child(2){
-  width: 10%;
+.nav li {
+  float: left;
 }
 
-.nav li:nth-child(5){
-  background-color: white;
+.nav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+
+
+@media screen and (max-width: 600px) {
+  .nav ul li{float: none;}
 }
 
 .question-board {
@@ -96,7 +95,7 @@ a {
 
 .board-container .question-board {
   position: absolute;
-  top: 10%;
+  top: 30%;
   left: 40%;
   margin-right: -50%;
   transform: translate(-5%, -5%)
@@ -175,7 +174,7 @@ a {
 
 .answered-poll, .unanswered-poll{
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 35%;
   width: 40%;
   transform: translate(-5%, -5%);
@@ -245,14 +244,17 @@ a {
   flex-direction: row;
   border: 1px solid gray;
   border-radius: 5px;
+  padding-right: 5%;
+  width: 110%;
 }
 .leader-board{
   position: absolute;
-  top: 10%;
-  left: 40%;
+  top: 20%;
+  left: 35%;
   width: 30%;
   margin-right: -50%;
   transform: translate(-5%, -5%)
+
 }
 
 .stat-avatar{
@@ -297,15 +299,15 @@ a {
 }
 .new-question{
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 33%;
   width: 40%;
   height: 40%;
   margin-right: -50%;
   transform: translate(-5%, -5%);
   border: 1px solid gray;
-  padding-bottom: 2%;
   border-radius: 5px;
+  padding-bottom: 4%;
 }
 h1{
   padding: 0;
@@ -324,11 +326,11 @@ h1{
 
 .new-question-option-one, .new-question-option-two, .new-question-submit{
   height: 30px;
-  width: 545px;
+  width: 95%;
   margin: 5px;
 }
 .new-question-submit{
-  width: 555px;
+  width: 97%;
   height: 30px;
   background-color: #b4e3a6;
   border-radius: 5px;

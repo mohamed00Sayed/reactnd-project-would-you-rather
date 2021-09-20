@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -34,13 +34,15 @@ class App extends Component {
     const { loading, answers, questions } = this.props
     return (
       <Router history={history} >
-        <Fragment>
+        <div>
           <LoadingBar />
           {
             loading === true ?
             <Login handleLogin={this.handleLogin}/>:
-            <Fragment>
-              <Nav handleLogout={this.handleLogout}/>
+            <div>
+              <div>
+                <Nav handleLogout={this.handleLogout}/>
+              </div>
               <div className='app-div'>
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
@@ -61,10 +63,10 @@ class App extends Component {
                   }
                 }}/>
               </div>
-            </Fragment>
+            </div>
           }
           
-        </Fragment>
+        </div>
       </Router>
       
     )
