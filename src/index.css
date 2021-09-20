@@ -407,3 +407,7 @@ h1{
   border: 1px solid gray;
   border-radius: 5px; 
 }
+
+.disabled-link{
+  pointer-events: none;
+}

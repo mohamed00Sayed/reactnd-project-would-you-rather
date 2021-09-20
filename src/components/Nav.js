@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 class Nav extends Component{
   
   handleLogout = (evt) => {
+    evt.preventDefault()
     this.props.handleLogout(evt)
   }
   
@@ -17,7 +18,7 @@ class Nav extends Component{
             <img src={avatarURL} alt='user avatar' style={{'height': '46px','float':'right'}}/>
           </li>
           <li >
-            <a href='//'>{name}</a>
+            <a href='/' className='disabled-link'>{name}</a>
           </li>          
           <li>
             <NavLink to='/' exact activeClassName='active'>
@@ -35,7 +36,7 @@ class Nav extends Component{
             </NavLink>
           </li>
           <li>
-            <a className='logout-btn' onClick={this.handleLogout} href='//'>Logout</a>
+            <a className='logout-btn' onClick={this.handleLogout} href='/' >Logout</a>
           </li>
         </ul>
       </nav>
