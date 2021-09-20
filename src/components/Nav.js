@@ -17,7 +17,7 @@ class Nav extends Component{
             <img src={avatarURL} alt='user avatar' style={{'height': '46px','float':'right'}}/>
           </li>
           <li >
-            <a>{name}</a>
+            <a href='//'>{name}</a>
           </li>          
           <li>
             <NavLink to='/' exact activeClassName='active'>
@@ -35,7 +35,7 @@ class Nav extends Component{
             </NavLink>
           </li>
           <li>
-            <a className='logout-btn' onClick={this.handleLogout}>Logout</a>
+            <a className='logout-btn' onClick={this.handleLogout} href='//'>Logout</a>
           </li>
         </ul>
       </nav>
