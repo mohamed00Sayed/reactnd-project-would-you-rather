@@ -198,6 +198,7 @@ a {
   flex-direction: column;
   border-left: 1px solid gray;
   padding-left: 5%;
+  width: 100%;
 }
 
 .asked-by, .user-asks{
