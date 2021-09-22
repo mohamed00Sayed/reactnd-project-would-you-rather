@@ -40,10 +40,10 @@ class App extends Component {
             loading === true ?
             <Login handleLogin={this.handleLogin}/>:
             <div>
-              <div>
+              <div className='header'>
                 <Nav handleLogout={this.handleLogout}/>
               </div>
-              <div className='app-div'>
+              <div className='container'>
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/add' component={NewQuestion} />

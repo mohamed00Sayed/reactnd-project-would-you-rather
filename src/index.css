@@ -6,6 +6,26 @@ body {
   background-color: #fafbfc;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+}
+
+.container {
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  overflow: auto;
+}
+
 a {
   text-decoration: none;
   color: #252525;
@@ -18,7 +38,6 @@ a {
 .logout-btn:hover{
   cursor:pointer;
 }
-
 
 .nav ul {
   position: fixed;
@@ -303,7 +322,7 @@ a {
   top: 20%;
   left: 33%;
   width: 40%;
-  height: 40%;
+  height: 17.5em;
   margin-right: -50%;
   transform: translate(-5%, -5%);
   border: 1px solid gray;
