@@ -169,7 +169,9 @@ a {
 }
 
 .option-percent{
-  background-color: red;
+  background-color: #02ccba;
+  border-radius: 10%;
+  text-align: center;
 }
 
 .answered-poll, .unanswered-poll{
