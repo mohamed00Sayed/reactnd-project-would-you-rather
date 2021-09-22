@@ -216,7 +216,11 @@ a {
 }
 
 .user-choice{
-  margin-left: 92%;
+  float: right;
+  margin-top: -15%;
+  width: 30px;
+  height: 30px;
+  fill: #017a9b;
 }
 
 .unanswered-poll{
