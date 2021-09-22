@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/reactnd-project-would-you-rather/static/css/main.8a170f34.chunk.css",
+    "main.css": "/reactnd-project-would-you-rather/static/css/main.8cc4c661.chunk.css",
     "main.js": "/reactnd-project-would-you-rather/static/js/main.8fbe5ae1.chunk.js",
     "main.js.map": "/reactnd-project-would-you-rather/static/js/main.8fbe5ae1.chunk.js.map",
     "runtime-main.js": "/reactnd-project-would-you-rather/static/js/runtime-main.37c104e9.js",
@@ -8,13 +8,13 @@
     "static/js/2.d9db7215.chunk.js": "/reactnd-project-would-you-rather/static/js/2.d9db7215.chunk.js",
     "static/js/2.d9db7215.chunk.js.map": "/reactnd-project-would-you-rather/static/js/2.d9db7215.chunk.js.map",
     "index.html": "/reactnd-project-would-you-rather/index.html",
-    "static/css/main.8a170f34.chunk.css.map": "/reactnd-project-would-you-rather/static/css/main.8a170f34.chunk.css.map",
+    "static/css/main.8cc4c661.chunk.css.map": "/reactnd-project-would-you-rather/static/css/main.8cc4c661.chunk.css.map",
     "static/js/2.d9db7215.chunk.js.LICENSE.txt": "/reactnd-project-would-you-rather/static/js/2.d9db7215.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.37c104e9.js",
     "static/js/2.d9db7215.chunk.js",
-    "static/css/main.8a170f34.chunk.css",
+    "static/css/main.8cc4c661.chunk.css",
     "static/js/main.8fbe5ae1.chunk.js"
   ]
 }
