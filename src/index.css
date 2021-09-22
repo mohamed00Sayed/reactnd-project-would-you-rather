@@ -142,14 +142,13 @@ a {
 
 .btn-unanswered{
   position: relative;
-  width: 180px;
-  height: 18%;
+  width: 85%;
+  height: 1em;
   color: #84cfe3;
   background-color: white;
   border: 1px solid gray;
   border-radius: 5px;
   padding: 4%;
-  padding-bottom: 8%;
   text-align: center;  
 }
 
