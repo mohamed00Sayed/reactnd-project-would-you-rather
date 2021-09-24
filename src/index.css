@@ -11,13 +11,6 @@ html, body {
   height: 100%;
 }
 
-.header {
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  top: 0;
-}
-
 .container {
   width: 100%;
   position: fixed;
@@ -68,6 +61,17 @@ a {
 
 @media screen and (max-width: 600px) {
   .nav ul li{float: none;}
+  .board-container .question-board{
+    width: 80%;
+    margin: 20% 0 0 10%;
+  }
+  .question-data .questtion-text-data{
+    width: 40%;
+    margin: 20% 5% 0 5%;
+  }
+  #root .container{
+    top: 230px;
+  }
 }
 
 .question-board {
@@ -75,6 +79,8 @@ a {
   flex-direction: column;
   border: 1px solid gray;
   border-radius: 5px;
+  width: 22%;
+  margin: 5% 0 0 40%;
 }
 
 .question-board-header {
@@ -113,14 +119,6 @@ a {
   margin-top: 5px;
 }
 
-.board-container .question-board {
-  position: absolute;
-  top: 30%;
-  left: 40%;
-  margin-right: -50%;
-  transform: translate(-5%, -5%)
-}
-
 .question {
   display: flex;
   flex-direction: column;
@@ -148,8 +146,7 @@ a {
 }
 
 .btn {
-  position: relative;
-  width: 180px;
+  width: 90%;
   height: 18%;
   color: #84cfe3;
   background-color: white;
@@ -195,15 +192,45 @@ a {
 }
 
 .answered-poll, .unanswered-poll{
-  position: absolute;
-  top: 20%;
-  left: 35%;
-  width: 40%;
-  transform: translate(-5%, -5%);
   display: flex;
   flex-direction: column;
   border: 1px solid gray;
   border-radius: 5px;
+  margin: 5% 30% 0 30%;
+}
+
+@media screen and (max-width: 600px){
+  .answered-poll, .unanswered-poll{
+    margin: 20% 5% 0 5%;
+  }
+  .answered-poll-content, .unanswered-poll-content{
+    width: 93%;
+  }
+  #root .header{
+    height: 230px;
+  }
+  .container .new-question{
+    width: 90%;
+    margin: 20% 5% 0 5%;
+  }
+  .leader-board-container .leader-board{
+    width: 130%;
+    margin: 20% 0 0 -25%;
+    padding: 0;
+  }
+  .leader-board-container{
+    margin: 0 10% 0 10%;
+    padding: 0;
+  }
+  #root .login-wraper{
+    width: 80%;
+    margin: 5% 30% 0 0;
+  }
+}
+
+.header {
+  width: 100%;
+  height: 50px;
 }
 
 .answered-poll-content, .unanswered-poll-content{
@@ -247,10 +274,6 @@ a {
   fill: #017a9b;
 }
 
-.unanswered-poll{
-  width: 30%;
-}
-
 .unanswered-poll-author-avatar{
   padding: 0 10px 0 10px;
 }
@@ -265,15 +288,11 @@ a {
   border: 1px solid gray;
   border-radius: 5px;
   padding-right: 5%;
-  width: 110%;
+  width: 100%;
 }
 .leader-board{
-  position: absolute;
-  top: 20%;
-  left: 35%;
   width: 30%;
-  margin-right: -50%;
-  transform: translate(-5%, -5%)
+  margin: 5% 30% 0 30%;
 
 }
 
@@ -318,16 +337,11 @@ a {
   list-style: none
 }
 .new-question{
-  position: absolute;
-  top: 20%;
-  left: 33%;
-  width: 40%;
-  height: 17.5em;
-  margin-right: -50%;
-  transform: translate(-5%, -5%);
   border: 1px solid gray;
   border-radius: 5px;
-  padding-bottom: 4%;
+  width: 40%;
+  margin: 5% 30% 0 30%;
+
 }
 h1{
   padding: 0;
@@ -365,15 +379,10 @@ h1{
 }
 
 .login-wraper{
-  position: absolute;
-  top: 10%;
-  left: 33%;
-  width: 30%;
-  height: 30%;
-  margin-right: -50%;
-  transform: translate(-5%, -5%);
   border: 1px solid gray;
   border-radius: 5px;  
+  width: 30%;
+  margin: 5% 35% 0 35%;
 }
 
 .login{

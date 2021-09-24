@@ -34,15 +34,16 @@ class App extends Component {
     const { loading, answers, questions } = this.props
     return (
       <Router history={history} basename='reactnd-project-would-you-rather'>
-        <div>
+        <>
           <LoadingBar />
           {
             loading === true ?
             <Login handleLogin={this.handleLogin}/>:
-            <div>
+            <>
               <div className='header'>
                 <Nav handleLogout={this.handleLogout}/>
               </div>
+              
               <div className='container'>
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
@@ -63,10 +64,10 @@ class App extends Component {
                   }
                 }}/>
               </div>
-            </div>
+            </>
           }
           
-        </div>
+        </>
       </Router>
       
     )
