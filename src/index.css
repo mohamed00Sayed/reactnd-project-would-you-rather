@@ -79,7 +79,7 @@ a {
   flex-direction: column;
   border: 1px solid gray;
   border-radius: 5px;
-  width: 22%;
+  width: 25%;
   margin: 5% 0 0 40%;
 }
 
@@ -291,7 +291,7 @@ a {
   width: 100%;
 }
 .leader-board{
-  width: 30%;
+  width: 33%;
   margin: 5% 30% 0 30%;
 
 }
