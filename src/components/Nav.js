@@ -10,10 +10,10 @@ class Nav extends Component{
   }
   
   render(){
-    const { name, avatarURL } = this.props
+    const { name, avatarURL, handleSideBar } = this.props
     return(
       <nav className='nav'>
-        <ul>
+        <ul >
           <li>
             <img src={avatarURL} alt='user avatar' style={{'height': '46px','float':'right'}}/>
           </li>
@@ -21,17 +21,17 @@ class Nav extends Component{
             <a href='/' className='disabled-link'>{name}</a>
           </li>          
           <li>
-            <NavLink to='/' exact activeClassName='active'>
+            <NavLink to='/' exact activeClassName='active' onClick={handleSideBar}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to='/add' activeClassName='active'>
+            <NavLink to='/add' activeClassName='active' onClick={handleSideBar}>
               New Question
             </NavLink>
           </li>
           <li>
-            <NavLink to='/leaderboard' activeClassName='active'>
+            <NavLink to='/leaderboard' activeClassName='active' onClick={handleSideBar}>
               Leaderboard
             </NavLink>
           </li>
