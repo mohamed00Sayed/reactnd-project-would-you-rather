@@ -30,23 +30,6 @@ class App extends Component {
     this.props.dispatch(setAuthedUser(userId))
   }
   
-  handleSideBar = (evt)=>{
-    const header = document.querySelector('.header')
-    const container = document.querySelector('.container')
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-      if(header.classList.contains('shown')){
-        header.style.display = 'none'
-        container.style.top= '6.3%'
-      }
-      else{
-        header.style.display = 'block'
-        container.style.top= '233px'
-      }
-      header.classList.toggle('shown')
-    }
-
-  }
-  
   render() {
     const { loading, answers, questions } = this.props
     return (
@@ -57,14 +40,9 @@ class App extends Component {
             loading === true ?
             <Login handleLogin={this.handleLogin}/>:
             <>
-              <div className='header-toggle' onClick={this.handleSideBar}>
-                <svg viewBox="0 0 33 32"><path d="M24 21a1 1 0 010 2H8a1 1 0 010-2h16zm0-6a1 1 0 010 2H8a1 1 0 010-2h16zm0-6a1 1 0 010 2H8a1 1 0 010-2h16z"></path></svg>
-              </div>
-              <div className='header'>
-                <Nav handleLogout={this.handleLogout} handleSideBar={this.handleSideBar}/>
-              </div>
+              <Nav handleLogout={this.handleLogout}/>
               
-              <div className='container'>
+              <div className='containerss'>
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/add' component={NewQuestion} />

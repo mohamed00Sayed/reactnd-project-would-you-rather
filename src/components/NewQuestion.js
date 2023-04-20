@@ -1,90 +1,94 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { handleAddQuestion } from '../actions/questions'
-import history from '../history'
+import { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { handleAddQuestion } from "../actions/questions";
+import history from "../history";
 
-class NewQuestion extends Component{
-  constructor(props){
-    super(props)
-    this.state={
-      optOne: '',
-      optTwo: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleAddQuestion = this.handleAddQuestion.bind(this)
+class NewQuestion extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      optOne: "",
+      optTwo: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAddQuestion = this.handleAddQuestion.bind(this);
   }
-  
-  handleChange = (evt)=> {
-    const inputId = evt.target.id
-    if(inputId === 'opt-one-input'){
-      this.setState({optOne: evt.target.value})
+
+  handleChange = (evt) => {
+    const inputId = evt.target.id;
+    if (inputId === "optOne") {
+      this.setState({ optOne: evt.target.value });
+    } else {
+      this.setState({ optTwo: evt.target.value });
     }
-    else{
-      this.setState({optTwo: evt.target.value})
-    }
-  }
-  
-  handleAddQuestion = (evt)=> {
+  };
+
+  handleAddQuestion = (evt) => {
     //evt.preventDefault()
-    if(this.state.optOne === '' || this.state.optTwo === ''){
-      alert('Please fill empty fields !')
-    }
-    else{
-      const optionOneText = this.state.optOne
-      const optionTwoText = this.state.optTwo
-      const author = this.props.authedUser
+    if (this.state.optOne === "" || this.state.optTwo === "") {
+      alert("Please fill empty fields !");
+    } else {
+      const optionOneText = this.state.optOne;
+      const optionTwoText = this.state.optTwo;
+      const author = this.props.authedUser;
       const question = {
         optionOneText,
         optionTwoText,
-        author
-      }
-      this.props.dispatch(handleAddQuestion(question))
-      history.replace('/')
+        author,
+      };
+      this.props.dispatch(handleAddQuestion(question));
+      history.replace("/");
     }
-  }
-  
-  render(){
-    return(
-      <div className='new-question'>
-        <div className='new-question-header'>
-          <h1>Create New Question</h1>
+  };
+
+  render() {
+    return (
+      <div
+        className="container-fluid border text-center"
+        style={{ marginTop: "100px" }}
+      >
+        <div className="display-6 mb-3 bg-primary text-white">
+          Create New Question
         </div>
-        <div className='new-question-content'>
-          <p>Complete the question:</p>
+        <div className="">
+          <p className="lead">Complete the question:</p>
           <h3>Would you rather...</h3>
-          <div>
-            <input className='new-question-option-one'
-              id='opt-one-input'
-              placeholder={'Enter Option One Text Here'}
-              onChange={this.handleChange}
-            /> 
-          </div>
-          <hr /> 
-          <div>
-            <input className='new-question-option-two'
-              id='opt-two-input'
-              placeholder={'Enter Option Two Text Here'}
+          <div className="form-floating">
+            <input
+              className="form-control"
+              id="optOne"
+              placeholder={"Enter Option One Text Here"}
               onChange={this.handleChange}
             />
+            <label for="optOne">Option one</label>
+          </div>
+          <hr />
+          <div className="form-floating mb-3">
+            <input
+              className="form-control"
+              id="optTwo"
+              placeholder={"Enter Option Two Text Here"}
+              onChange={this.handleChange}
+            />
+            <label for="optTwo">Option two</label>
           </div>
           <div>
-            <Link 
-              to={'/'}
-              onClick={this.handleAddQuestion}
-            ><div className='new-question-submit'>SUBMIT</div></Link>
+            <Link to={"/"} onClick={this.handleAddQuestion} className="btn btn-lg btn-outline-primary w-100">
+              SUBMIT
+            </Link>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-function mapStateToProps(state){
-  const { authedUser } = state
+function mapStateToProps(state) {
+  const { authedUser } = state;
   return {
-    authedUser
-  }
+    authedUser,
+  };
 }
 
-export default connect(mapStateToProps)(NewQuestion)
+export default connect(mapStateToProps)(NewQuestion);
