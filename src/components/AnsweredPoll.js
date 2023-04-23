@@ -15,7 +15,7 @@ class AnsweredPoll extends Component {
       optTwoVotes,
     } = this.props;
     return (
-      <div className="container-fluid border" style={{ marginTop: "100px" }}>
+      <div className="container-fluid col-12 col-md-6 border border-primary rounded-3 p-2" style={{ marginTop: "100px" }}>
         <label className="mb-3 lead">Asked by {name}</label>
         <div className="d-flex">
           <div className="pe-3 my-auto">

@@ -45,41 +45,45 @@ class NewQuestion extends Component {
   render() {
     return (
       <div
-        className="container-fluid border text-center"
-        style={{ marginTop: "100px" }}
-      >
-        <div className="display-6 mb-3 bg-primary text-white">
-          Create New Question
+          className="border text-center col-12 col-md-6 mx-auto p-3 rounded-3"
+          style={{ marginTop: "100px" }}
+        >
+          <div className="display-6 mb-3 bg-primary text-white">
+            Create New Question
+          </div>
+          <div className="">
+            <p className="lead">Complete the question:</p>
+            <h3>Would you rather...</h3>
+            <div className="form-floating">
+              <input
+                className="form-control"
+                id="optOne"
+                placeholder={"Enter Option One Text Here"}
+                onChange={this.handleChange}
+              />
+              <label for="optOne">Option one</label>
+            </div>
+            <hr />
+            <div className="form-floating mb-3">
+              <input
+                className="form-control"
+                id="optTwo"
+                placeholder={"Enter Option Two Text Here"}
+                onChange={this.handleChange}
+              />
+              <label for="optTwo">Option two</label>
+            </div>
+            <div>
+              <Link
+                to={"/"}
+                onClick={this.handleAddQuestion}
+                className="btn btn-lg btn-outline-primary w-100"
+              >
+                SUBMIT
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="">
-          <p className="lead">Complete the question:</p>
-          <h3>Would you rather...</h3>
-          <div className="form-floating">
-            <input
-              className="form-control"
-              id="optOne"
-              placeholder={"Enter Option One Text Here"}
-              onChange={this.handleChange}
-            />
-            <label for="optOne">Option one</label>
-          </div>
-          <hr />
-          <div className="form-floating mb-3">
-            <input
-              className="form-control"
-              id="optTwo"
-              placeholder={"Enter Option Two Text Here"}
-              onChange={this.handleChange}
-            />
-            <label for="optTwo">Option two</label>
-          </div>
-          <div>
-            <Link to={"/"} onClick={this.handleAddQuestion} className="btn btn-lg btn-outline-primary w-100">
-              SUBMIT
-            </Link>
-          </div>
-        </div>
-      </div>
     );
   }
 }

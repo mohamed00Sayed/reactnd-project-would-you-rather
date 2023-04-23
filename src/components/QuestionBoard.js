@@ -10,7 +10,7 @@ class QuestionBoard extends Component {
   render() {
     const { answeredQs, unansweredQs } = this.props;
     return (
-      <div className="container-fluid text-center bg-light" style={{marginTop:"100px"}}>
+      <div className="container-fluid text-center bg-light col-12 col-md-8" style={{marginTop:"100px"}}>
         <ul className="nav nav-tabs justify-content-center nav-justified">
           <li className="nav-item">
             <a className="nav-link active" data-bs-toggle="tab" href="#answered">

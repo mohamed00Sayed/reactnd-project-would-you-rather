@@ -21,7 +21,7 @@ class UnansweredPoll extends Component {
   render() {
     const { id, name, avatarURL, optionOneText, optionTwoText } = this.props;
     return (
-      <div className="container-fluid border" style={{ marginTop: "100px" }}>
+      <div className="container-fluid border col-12 col-md-8 border-primary p-2 rounded-3" style={{ marginTop: "100px" }}>
         <h4 className="lead mb-3">{name} asks:</h4>
         <div className="d-flex">
           <div className="pe-3 my-auto">

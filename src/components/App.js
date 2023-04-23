@@ -42,7 +42,7 @@ class App extends Component {
             <>
               <Nav handleLogout={this.handleLogout}/>
               
-              <div className='containerss'>
+              <div>
                 <Route exact path='/' component={QuestionBoard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/add' component={NewQuestion} />
